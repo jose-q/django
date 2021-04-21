@@ -1,5 +1,13 @@
-from django.shortcuts import render, HttpResponse
+# coding=utf-8
 
+from django.shortcuts import render
+from django.http import HttpResponse
 # Create your views here.
-def hello(request, nome):
-    return HttpResponse(' <h1>Hello World {}<h1>'.format(nome))
+
+def index(request):
+    texts = ['Lorem ipsum dolor sit amet', 'Curabitur blandit dapibus']
+    context = {
+        'title': 'django e-commerce',
+        'texts': texts
+    }
+    return render(request,'index.html', context)
